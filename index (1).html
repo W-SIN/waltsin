@@ -1,0 +1,1310 @@
+<!--
+  WALTSIN.COM — index.html
+  ========================
+  DEPLOYMENT:
+  1. Upload this file to https://github.com/W-SIN/waltsin as index.html
+  2. Upload hero photo as images/hero.jpg to the same repo
+  3. Connect repo to Cloudflare Pages (dash.cloudflare.com → Pages → Connect to Git)
+  4. Build settings: Framework preset = None, Build command = (empty), Output = /
+  5. Add custom domain waltsin.com in Cloudflare Pages settings
+  6. Web Analytics are auto-injected by Cloudflare — nothing to configure
+
+  UPDATING CONTENT:
+  - Edit index.html directly on GitHub (click the file → pencil icon → commit)
+  - Changes go live automatically within ~30 seconds
+  - To add tour dates: find the LIVE SECTION comment, add dates there
+  - To activate platform links: find PLATFORM STUBS and replace # with real URLs
+  - To add press photo download links: find GOOGLE_DRIVE_LINK_PLACEHOLDER x3
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WaltSin — Folk, Blues &amp; Roots | Coffs Harbour NSW</title>
+  <meta name="description" content="WaltSin is an emerging singer-songwriter from Coffs Harbour, Australia — folk, blues, live looping and hillbilly rock. Book for festivals and venues.">
+  <meta name="keywords" content="WaltSin, folk blues Australia, Coffs Harbour musician, live looping, singer songwriter NSW, roots music, EPK, booking">
+  <meta property="og:title" content="WaltSin">
+  <meta property="og:description" content="Old spells &amp; new beginnings. Folk, blues and roots from Coffs Harbour, NSW.">
+  <meta property="og:image" content="https://waltsin.com/images/og.jpg">
+  <meta property="og:url" content="https://waltsin.com">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WaltSin">
+  <meta name="twitter:description" content="Old spells &amp; new beginnings. Folk, blues and roots from Coffs Harbour, NSW.">
+  <meta name="twitter:image" content="https://waltsin.com/images/og.jpg">
+  <link rel="canonical" href="https://waltsin.com">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23141008'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='serif' font-size='20' font-weight='bold' fill='%23c8922a'>W</text></svg>">
+
+  <!-- ========== GOOGLE FONTS ========== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+
+  <!-- ========== STYLES ========== -->
+  <style>
+    /* ---- ROOT VARIABLES ---- */
+    :root {
+      --bg:           #141008;
+      --surface:      #1e1710;
+      --text-primary: #e4ceaa;
+      --text-muted:   #9e8a6a;
+      --accent:       #c8922a;
+      --accent-warm:  #a0522d;
+      --divider:      #3a2e1e;
+      --white:        #f5ead8;
+      --nav-height:   64px;
+      --max-content:  1100px;
+      --max-prose:    680px;
+    }
+
+    /* ---- RESET & BASE ---- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Libre Caslon Text', Georgia, serif;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* ---- GRAIN OVERLAY ---- */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+    }
+
+    /* ---- TYPOGRAPHY ---- */
+    h1, h2, h3 { font-family: 'IM Fell English', Georgia, serif; font-weight: normal; }
+    .font-elite { font-family: 'Special Elite', 'Courier New', monospace; }
+    .font-caslon { font-family: 'Libre Caslon Text', Georgia, serif; }
+    .font-fell-italic { font-family: 'IM Fell English', Georgia, serif; font-style: italic; }
+
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s ease; }
+    a:hover { color: var(--white); }
+
+    img { max-width: 100%; display: block; }
+
+    /* ---- SECTION DIVIDER ---- */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 4rem auto;
+      max-width: var(--max-content);
+      padding: 0 2rem;
+    }
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+    .section-divider span {
+      font-family: 'IM Fell English', serif;
+      color: var(--accent);
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    /* ---- BUTTONS ---- */
+    .btn {
+      display: inline-block;
+      font-family: 'Special Elite', monospace;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.7rem 1.8rem;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      background: transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+      min-height: 44px;
+      min-width: 44px;
+    }
+    .btn:hover {
+      background: rgba(200, 146, 42, 0.12);
+      color: var(--white);
+      box-shadow: 0 0 14px rgba(200, 146, 42, 0.25);
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+    }
+    .btn-primary:hover {
+      background: var(--white);
+      color: var(--bg);
+      border-color: var(--white);
+      box-shadow: 0 0 18px rgba(200, 146, 42, 0.35);
+    }
+
+    /* ---- SCROLL ANIMATION ---- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== NAVIGATION ========== */
+    #site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+    }
+    #site-nav.scrolled {
+      background: rgba(20, 16, 8, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--divider);
+    }
+    .nav-wordmark {
+      font-family: 'IM Fell English', serif;
+      font-size: 1.4rem;
+      color: var(--white);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+    .nav-wordmark:hover { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* Hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      min-width: 44px;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      z-index: 1001;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-primary);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile drawer */
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: var(--nav-height);
+      left: 0; right: 0;
+      background: rgba(20, 16, 8, 0.97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 1.5rem 2rem 2rem;
+      z-index: 999;
+      border-bottom: 1px solid var(--divider);
+      transform: translateY(-8px);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .nav-drawer.open {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .nav-drawer ul { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .nav-drawer ul a {
+      font-family: 'Special Elite', monospace;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .nav-drawer ul a:hover { color: var(--accent); }
+
+    @media (max-width: 767px) {
+      .nav-hamburger { display: flex; }
+      .nav-links { display: none; }
+      .nav-drawer { display: block; }
+    }
+
+    /* ========== HERO ========== */
+    #hero {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/hero.jpg');
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+    }
+    /* Fallback gradient if hero.jpg is missing */
+    .hero-bg-fallback {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 60%, #2a1a08 0%, #141008 70%);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      /* Darkest in the 40–80% band — where text meets the bright guitar on mobile */
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.35) 0%,
+        rgba(0,0,0,0.55) 30%,
+        rgba(0,0,0,0.78) 50%,
+        rgba(0,0,0,0.80) 70%,
+        rgba(0,0,0,0.55) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 2rem;
+      max-width: 700px;
+    }
+    .hero-wordmark {
+      font-family: 'IM Fell English', serif;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      font-weight: normal;
+      color: var(--white);
+      letter-spacing: 0.08em;
+      line-height: 1;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.8);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: heroReveal 0.9s ease forwards 0ms;
+    }
+    .hero-tagline1 {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 3vw, 1.55rem);
+      color: var(--white);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.6rem;
+      text-shadow: 0 1px 12px rgba(0,0,0,0.95), 0 2px 6px rgba(0,0,0,0.8);
+      opacity: 0;
+      transform: translateY(18px);
+      animation: heroReveal 0.9s ease forwards 200ms;
+    }
+    .hero-tagline2 {
+      font-family: 'Special Elite', monospace;
+      font-size: clamp(0.8rem, 2vw, 0.95rem);
+      color: var(--text-primary);
+      letter-spacing: 0.06em;
+      margin-bottom: 2.5rem;
+      text-shadow: 0 1px 10px rgba(0,0,0,0.98), 0 2px 4px rgba(0,0,0,0.9);
+      opacity: 0;
+      transform: translateY(16px);
+      animation: heroReveal 0.9s ease forwards 400ms;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(14px);
+      animation: heroReveal 0.9s ease forwards 600ms;
+    }
+    @keyframes heroReveal {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Scroll indicator */
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      opacity: 0;
+      animation: heroReveal 1s ease forwards 1000ms;
+    }
+    .hero-scroll-hint span {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    .scroll-arrow {
+      width: 1px;
+      height: 32px;
+      background: linear-gradient(to bottom, var(--text-muted), transparent);
+      animation: scrollPulse 2s ease infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    @media (max-width: 767px) {
+      .hero-bg { background-position: center 15%; }
+      #hero { align-items: center; }
+      .hero-content {
+        padding: 2rem 1.5rem;
+        /* Dark pill scrim so text is always legible regardless of image zone */
+        background: rgba(0,0,0,0.38);
+        border-radius: 4px;
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        max-width: 340px;
+      }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .hero-ctas .btn { width: 100%; max-width: 280px; text-align: center; }
+    }
+
+    /* ========== GENERIC SECTION ========== */
+    .site-section {
+      padding: 5rem 2rem;
+      max-width: var(--max-content);
+      margin: 0 auto;
+    }
+    .section-heading {
+      font-family: 'IM Fell English', serif;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      color: var(--white);
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .section-heading::after {
+      content: '';
+      display: block;
+      width: 3rem;
+      height: 1px;
+      background: var(--accent);
+      margin-top: 0.75rem;
+    }
+
+    /* ========== BIO ========== */
+    #bio-inner {
+      max-width: var(--max-prose);
+      margin: 0 auto;
+    }
+    #bio p {
+      font-family: 'Libre Caslon Text', serif;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--text-primary);
+      margin-bottom: 1.4rem;
+    }
+    .bio-pullquote {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      color: var(--text-primary);
+      border-left: 2px solid var(--accent);
+      padding: 0.6rem 0 0.6rem 1.5rem;
+      margin: 2.5rem 0;
+      line-height: 1.7;
+    }
+    #bio-extended { display: none; }
+    #bio-extended.open { display: block; }
+    .bio-toggle {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s ease;
+    }
+    .bio-toggle:hover { color: var(--white); }
+
+    /* Bio photos */
+    .bio-photos {
+      display: grid;
+      grid-template-columns: 1fr 0.65fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+    .bio-photo-wrap {
+      overflow: hidden;
+      border-radius: 2px;
+      border: 1px solid var(--divider);
+    }
+    .bio-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 2px;
+      filter: sepia(20%) brightness(0.92);
+      transition: filter 0.4s ease;
+    }
+    .bio-photo-wrap:first-child img { filter: sepia(30%) brightness(0.88) saturate(1.1); }
+    .bio-photo-wrap:hover img { filter: sepia(10%) brightness(0.96); }
+    .bio-photo-caption {
+      font-family: 'Special Elite', monospace;
+      font-style: italic;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .bio-photos { grid-template-columns: 1fr; }
+      .bio-photo-wrap:nth-child(2) { max-width: 280px; margin: 0 auto; }
+    }
+
+    /* ========== MUSIC ========== */
+    .music-subsection { margin-bottom: 3.5rem; }
+    .subsection-heading {
+      font-family: 'IM Fell English', serif;
+      font-size: 1.4rem;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+    .subsection-intro {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+    }
+    .embeds-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .embed-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 2px;
+      border: 1px solid var(--divider);
+      background: var(--surface);
+    }
+    .embed-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+    @media (max-width: 700px) {
+      .embeds-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Platform links */
+    .stream-heading {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .platform-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .platform-link {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      padding: 0.45rem 1rem;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .platform-link:hover {
+      background: rgba(200, 146, 42, 0.12);
+      color: var(--white);
+    }
+
+    /* Platform stubs */
+    .platform-stubs-section { margin-top: 2.5rem; }
+    .platform-stubs-label {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .platform-grid-stubs { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.6rem; }
+    .platform-stub {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      padding: 0.45rem 1rem;
+      border: 1px solid var(--divider);
+      color: var(--text-muted);
+      border-radius: 2px;
+      opacity: 0.5;
+      cursor: not-allowed;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+    }
+    .platform-coming-soon {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-style: italic;
+      opacity: 0.7;
+    }
+
+    /* ========== LIVE ========== */
+    #live p {
+      font-family: 'Libre Caslon Text', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+    #live p a { color: var(--accent); }
+    .shows-list { list-style: none; margin-top: 1.5rem; }
+    .show-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--divider);
+      font-family: 'Libre Caslon Text', serif;
+      font-size: 0.95rem;
+    }
+    .show-date {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.82rem;
+      color: var(--accent);
+      min-width: 5rem;
+    }
+
+    /* ========== EPK ========== */
+    .epk-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    @media (max-width: 767px) {
+      .epk-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    .epk-info-block { margin-bottom: 1.8rem; }
+    .epk-label {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+    .epk-value {
+      font-family: 'Libre Caslon Text', serif;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+    .epk-contact-panel {
+      background: var(--surface);
+      border: 1px solid var(--divider);
+      border-radius: 2px;
+      padding: 2rem;
+    }
+    .epk-contact-heading {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .epk-email {
+      font-family: 'IM Fell English', serif;
+      font-size: 1.3rem;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Press photos */
+    .press-photos-section { margin-top: 1rem; }
+    .press-photos-heading {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+    .press-photos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+    @media (max-width: 700px) {
+      .press-photos-grid { grid-template-columns: 1fr; }
+    }
+    .press-photo-item { display: flex; flex-direction: column; gap: 0.6rem; }
+    .press-photo-item img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 2px;
+      border: 1px solid var(--divider);
+      background: var(--surface);
+    }
+    .press-photo-label {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+    .press-download {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .press-download:hover { color: var(--white); }
+
+    /* ========== SOCIALS ========== */
+    .socials-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+    .social-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      min-width: 72px;
+      min-height: 44px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease, filter 0.2s ease;
+    }
+    .social-link:hover {
+      color: var(--accent);
+      filter: drop-shadow(0 0 8px rgba(200, 146, 42, 0.4));
+    }
+    .social-link svg { width: 36px; height: 36px; fill: currentColor; transition: fill 0.2s ease; }
+    .social-link span {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ========== MAILING ========== */
+    .mailing-intro {
+      font-family: 'Libre Caslon Text', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+    .mailing-layout {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    @media (max-width: 600px) {
+      .mailing-layout { grid-template-columns: 1fr; }
+    }
+    .brevo-wrap {
+      background: var(--surface);
+      border: 1px solid var(--divider);
+      border-radius: 2px;
+      padding: 2rem;
+    }
+    .qr-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .qr-wrap img {
+      padding: 5px;
+      background: #fff;
+      border: 1px solid var(--divider);
+      border-radius: 2px;
+    }
+    .qr-caption {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-align: center;
+      max-width: 140px;
+      line-height: 1.4;
+    }
+
+    /* ========== CONTACT ========== */
+    .contact-inner {
+      max-width: 480px;
+    }
+    .contact-label {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .contact-email {
+      font-family: 'IM Fell English', serif;
+      font-size: 1.5rem;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+    .contact-email:hover { color: var(--white); }
+    .contact-closing {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    /* ========== FOOTER ========== */
+    #site-footer {
+      border-top: 1px solid var(--divider);
+      padding: 2rem;
+      text-align: center;
+    }
+    .footer-text {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .footer-text a { color: var(--text-muted); }
+    .footer-text a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav id="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="#" class="nav-wordmark" aria-label="WaltSin — home">WaltSin</a>
+    <ul class="nav-links" role="list">
+      <li><a href="#music">Music</a></li>
+      <li><a href="#epk">EPK</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="nav-drawer" id="nav-drawer" role="dialog" aria-label="Navigation menu">
+    <ul role="list">
+      <li><a href="#music" class="nav-drawer-link">Music</a></li>
+      <li><a href="#epk" class="nav-drawer-link">EPK</a></li>
+      <li><a href="#live" class="nav-drawer-link">Live</a></li>
+      <li><a href="#socials" class="nav-drawer-link">Socials</a></li>
+      <li><a href="#contact" class="nav-drawer-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section id="hero" aria-label="Hero">
+      <div class="hero-bg-fallback"></div>
+      <div class="hero-bg" role="img" aria-label="WaltSin seated in an armchair in dark subtropical bush, playing a white semi-hollow guitar"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-wordmark">WaltSin</h1>
+        <p class="hero-tagline1">Old Spells &amp; New Beginnings</p>
+        <p class="hero-tagline2">Songs that bleed deep &amp; heal dirty</p>
+        <div class="hero-ctas">
+          <a href="#music" class="btn" aria-label="Listen to WaltSin's music">Listen</a>
+          <a href="#contact" class="btn btn-primary" aria-label="Book WaltSin">Book Now</a>
+        </div>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"><span>✦</span></div>
+
+    <!-- ========== BIO ========== -->
+    <section id="bio" class="site-section" aria-labelledby="bio-heading">
+      <div id="bio-inner">
+        <h2 class="section-heading reveal" id="bio-heading">WaltSin</h2>
+
+        <div class="reveal" style="transition-delay:0.1s">
+          <p>Walt Sin is an Australian multi-instrumentalist and singer-songwriter — a theatrical mourner, a raging sermoniser, a very drunk nuisance. Raised on hymns and running on bass, he builds songs from broken things, moving through folk, roots, blues, funk and hillbilly rock.</p>
+        </div>
+
+        <blockquote class="bio-pullquote reveal" style="transition-delay:0.15s">
+          "As the lingering corpse flower stinks sweetest after years spent rotting, so does the nectar darken with time. So can a song brew in the shadows."
+        </blockquote>
+
+        <div id="bio-extended" aria-hidden="true">
+          <p>Sin has filled hundreds of slots on the Australian festival circuit — as drummer for funk-roots outfit Fat Picnic (Splendour in the Grass, Woodford Folk Festival), and as frontman of indie-folk ensemble Gentle Persons Club, leading narrative-rich sets from sticky-carpeted corners to big stages. He continues with Jesse Morris &amp; The Shakedown on percussion for select regional appearances.</p>
+          <p>A global unravelling brought him back to Coffs Harbour, where he built a recording studio from the ground up. His songs weave broken things together — a snapped lap steel string, a hungover kick drum — reaching now toward EDM and live drum &amp; bass. From sleeping under a church pew to an alleyway beside the bar: this is his sobering confession.</p>
+        </div>
+
+        <div class="reveal" style="transition-delay:0.2s">
+          <button class="bio-toggle" id="bio-toggle-btn" aria-expanded="false" aria-controls="bio-extended">Read more</button>
+        </div>
+
+        <!-- Bio Photos -->
+        <div class="bio-photos reveal" style="transition-delay:0.25s">
+          <div class="bio-photo-wrap">
+            <img src="images/bio-colour.jpg"
+                 alt="WaltSin on an armchair in subtropical bush, guitar in hand, with a knife on the stump beside him — warm amber tones"
+                 loading="lazy">
+          </div>
+          <div>
+            <div class="bio-photo-wrap">
+              <img src="images/bio-lawnmower.jpg"
+                   alt="WaltSin mowing the lawn in a hat and underpants — a film photograph"
+                   loading="lazy">
+            </div>
+            <p class="bio-photo-caption">He also does this.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"><span>✦</span></div>
+
+    <!-- ========== MUSIC ========== -->
+    <section id="music" class="site-section" aria-labelledby="music-heading">
+      <h2 class="section-heading reveal" id="music-heading">The Music</h2>
+
+      <!-- Subsection A: WaltSin Originals -->
+      <div class="music-subsection reveal" style="transition-delay:0.05s">
+        <h3 class="subsection-heading">WaltSin — Originals</h3>
+        <div class="embeds-grid">
+          <div class="embed-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/d34Px-HipOI"
+              title="WaltSin — Stumbling Block (Original)"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+          <div class="embed-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/j0Qfc3jjIWU"
+              title="WaltSin — Away (Original)"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subsection B: Gentle Persons Club Archive -->
+      <div class="music-subsection reveal" style="transition-delay:0.1s">
+        <h3 class="subsection-heading">From the Archive — Gentle Persons Club</h3>
+        <p class="subsection-intro">While WaltSin's debut recordings take shape, here's where it all began —</p>
+        <div class="embeds-grid">
+          <div class="embed-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/nqIjRp2Iwek"
+              title="Gentle Persons Club — Weight in the Water"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+          <div class="embed-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/8bc6q-a2CAY"
+              title="Gentle Persons Club — Stumbling Block (Official Video)"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subsection C: All We Need EP -->
+      <div class="music-subsection reveal" style="transition-delay:0.15s">
+        <h3 class="subsection-heading">All We Need EP — Gentle Persons Club</h3>
+        <p class="stream-heading">Stream / Buy</p>
+        <div class="platform-grid">
+          <a href="https://open.spotify.com/album/3u8ybVff55l7jG1t4VRTiu" class="platform-link" target="_blank" rel="noopener noreferrer">Spotify</a>
+          <a href="https://itunes.apple.com/au/album/all-we-need-ep/1368421931" class="platform-link" target="_blank" rel="noopener noreferrer">Apple Music</a>
+          <a href="https://gentlepersonsclub.bandcamp.com/" class="platform-link" target="_blank" rel="noopener noreferrer">Bandcamp</a>
+          <a href="https://www.soundcloud.com/gentlepersonsclub" class="platform-link" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+          <a href="https://www.youtube.com/playlist?list=PLXmsBHJh9Vzq0mbk7Tlsq1CKbBEvgRuVm" class="platform-link" target="_blank" rel="noopener noreferrer">YouTube Playlist</a>
+          <a href="https://www.triplejunearthed.com/artist/gentle-persons-club" class="platform-link" target="_blank" rel="noopener noreferrer">Triple J Unearthed</a>
+        </div>
+      </div>
+
+      <!-- PLATFORM STUBS — replace # with real URLs when ready -->
+      <div class="platform-stubs-section reveal" style="transition-delay:0.2s">
+        <p class="platform-stubs-label">WaltSin</p>
+        <div class="platform-grid-stubs">
+          <span class="platform-stub" title="Coming soon" aria-label="Spotify — coming soon">Spotify</span>
+          <span class="platform-stub" title="Coming soon" aria-label="Apple Music — coming soon">Apple Music</span>
+          <span class="platform-stub" title="Coming soon" aria-label="Bandcamp — coming soon">Bandcamp</span>
+          <span class="platform-stub" title="Coming soon" aria-label="SoundCloud — coming soon">SoundCloud</span>
+          <span class="platform-stub" title="Coming soon" aria-label="YouTube Music — coming soon">YouTube Music</span>
+        </div>
+        <p class="platform-coming-soon">WaltSin — first single coming soon</p>
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"><span>✦</span></div>
+
+    <!-- ========== LIVE SECTION ========== -->
+    <section id="live" class="site-section" aria-labelledby="live-heading">
+      <h2 class="section-heading reveal" id="live-heading">Live</h2>
+      <div class="reveal" style="transition-delay:0.05s">
+        <p>No upcoming shows announced. Join the <a href="#mailing">mailing list</a> to be first to know.</p>
+        <!-- To add tour dates, replace the paragraph above and add a list below using this format:
+        <ul class="shows-list">
+          <li class="show-item">
+            <span class="show-date">DD MMM YYYY</span>
+            <span>Venue Name · City, State</span>
+            <a href="#" class="btn" style="margin-left:auto" target="_blank" rel="noopener">Tickets</a>
+          </li>
+        </ul>
+        -->
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"><span>✦</span></div>
+
+    <!-- ========== EPK ========== -->
+    <section id="epk" class="site-section" aria-labelledby="epk-heading">
+      <h2 class="section-heading reveal" id="epk-heading">Press &amp; Booking</h2>
+
+      <div class="epk-grid">
+        <!-- Left: Artist Info -->
+        <div class="reveal" style="transition-delay:0.05s">
+          <div class="epk-info-block">
+            <p class="epk-label">Genre</p>
+            <p class="epk-value">Folk · Blues · Bluegrass · Roots · Funk · Hillbilly Rock<br>Live Looping · Singer-Songwriter</p>
+          </div>
+          <div class="epk-info-block">
+            <p class="epk-label">Based</p>
+            <p class="epk-value">Coffs Harbour, NSW, Australia — 2026</p>
+          </div>
+          <div class="epk-info-block">
+            <p class="epk-label">Festival Credits</p>
+            <p class="epk-value">Splendour in the Grass · Woodford Folk Festival<br>Townsville Folk Festival · Wallaby Creek Festival</p>
+          </div>
+          <div class="epk-info-block">
+            <p class="epk-label">Past Projects</p>
+            <p class="epk-value">Fat Picnic (drums) · Gentle Persons Club (frontman)<br>Jesse Morris &amp; The Shakedown (percussion)</p>
+          </div>
+          <div class="epk-info-block">
+            <p class="epk-label">Instruments</p>
+            <p class="epk-value">Acoustic / Electric / Slide Guitars · Lap Steel<br>Foot Percussion · Ukulele · Harmonica · Congas · Drums<br>Live Looping (in development)</p>
+          </div>
+          <div class="epk-info-block">
+            <p class="epk-label">APRA</p>
+            <p class="epk-value">Bradley John Garnett · Member No. 418902</p>
+          </div>
+          <div class="epk-info-block">
+            <p class="epk-label">Tech Requirements</p>
+            <p class="epk-value">Contact for current rider</p>
+          </div>
+        </div>
+
+        <!-- Right: Contact -->
+        <div class="reveal" style="transition-delay:0.1s">
+          <div class="epk-contact-panel">
+            <p class="epk-contact-heading">Bookings &amp; Media</p>
+            <a href="mailto:waltsin@pm.me" class="epk-email">waltsin@pm.me</a>
+            <a href="mailto:waltsin@pm.me" class="btn btn-primary" aria-label="Email WaltSin to book">Email to Book</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Press Photos -->
+      <div class="press-photos-section reveal" style="transition-delay:0.15s">
+        <p class="press-photos-heading">Press Photos</p>
+        <div class="press-photos-grid">
+          <div class="press-photo-item">
+            <img src="images/epk-portrait.jpg"
+                 alt="WaltSin colour portrait — looking directly at camera, seated in armchair in bush setting"
+                 loading="lazy">
+            <p class="press-photo-label">Portrait — Colour</p>
+            <a href="GOOGLE_DRIVE_LINK_PLACEHOLDER" target="_blank" rel="noopener noreferrer" class="press-download">↓ Download Hi-Res</a>
+          </div>
+          <div class="press-photo-item">
+            <img src="images/bio-colour.jpg"
+                 alt="WaltSin in the field — armchair in subtropical bush, knife on stump, guitar in hand. Warm amber tones."
+                 loading="lazy">
+            <p class="press-photo-label">In the Field — Colour</p>
+            <a href="GOOGLE_DRIVE_LINK_PLACEHOLDER" target="_blank" rel="noopener noreferrer" class="press-download">↓ Download Hi-Res</a>
+          </div>
+          <div class="press-photo-item">
+            <img src="images/hero.jpg"
+                 alt="WaltSin in the field — black and white portrait, seated in armchair in dark subtropical bush, playing white guitar"
+                 loading="lazy">
+            <p class="press-photo-label">In the Field — B&amp;W</p>
+            <a href="GOOGLE_DRIVE_LINK_PLACEHOLDER" target="_blank" rel="noopener noreferrer" class="press-download">↓ Download Hi-Res</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"><span>✦</span></div>
+
+    <!-- ========== SOCIALS ========== -->
+    <section id="socials" class="site-section" aria-labelledby="socials-heading">
+      <h2 class="section-heading reveal" id="socials-heading">Find WaltSin</h2>
+      <div class="socials-grid reveal" style="transition-delay:0.05s">
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/WaltSins/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WaltSin on Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          <span>Instagram</span>
+        </a>
+
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/WaltSins" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WaltSin on Facebook">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+          <span>Facebook</span>
+        </a>
+
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@waltsin" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WaltSin on TikTok">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+          </svg>
+          <span>TikTok</span>
+        </a>
+
+        <!-- YouTube -->
+        <a href="https://www.youtube.com/@WaltSin" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WaltSin on YouTube">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          <span>YouTube</span>
+        </a>
+
+        <!-- Crowdpleaser -->
+        <a href="https://www.crowdpleaser.com.au/WaltSin" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WaltSin on Crowdpleaser">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+          </svg>
+          <span>Crowdpleaser</span>
+        </a>
+
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"><span>✦</span></div>
+
+    <!-- ========== MAILING LIST ========== -->
+    <section id="mailing" class="site-section" aria-labelledby="mailing-heading">
+      <h2 class="section-heading reveal" id="mailing-heading">Stay in the Loop</h2>
+      <p class="mailing-intro reveal" style="transition-delay:0.05s">New music, rare shows, late-night transmissions from the studio.</p>
+
+      <div class="mailing-layout reveal" style="transition-delay:0.1s">
+        <div class="brevo-wrap">
+          <iframe
+            width="100%"
+            height="220"
+            src="https://a6d59ff0.sibforms.com/serve/MUIFAPsjW2V0lDtbpd0q0V2eVAmNompZDi_2vlkVIHHyjAm4kSl44kQ--wdgjruwFILk8hrXgwumQ5s29FegDyZitBTWLdIwIrWFvNCjnXKojL61wsNmMH63XU-HdDSPMv38FBY44cKqXvhlaTmSzBPZZrAZMNSwFUWWf1udeSK61N1y4idmYArEkRybOeOs-l1llCa0kY14uC2R4g=="
+            frameborder="0"
+            scrolling="auto"
+            allowfullscreen
+            style="display:block; max-width:480px; margin:0 auto; border:none; background:transparent;"
+            title="WaltSin Mailing List Signup"
+            loading="lazy"></iframe>
+        </div>
+        <div class="qr-wrap">
+          <img src="images/qr-mailinglist.png"
+               alt="QR code — scan to join the WaltSin mailing list"
+               width="160"
+               height="160"
+               loading="lazy">
+          <p class="qr-caption">At a show? Scan to stay in touch.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"><span>✦</span></div>
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contact" class="site-section" aria-labelledby="contact-heading">
+      <h2 class="section-heading reveal" id="contact-heading">Contact</h2>
+      <div class="contact-inner reveal" style="transition-delay:0.05s">
+        <p class="contact-label">Bookings · Media · General</p>
+        <a href="mailto:waltsin@pm.me" class="contact-email">waltsin@pm.me</a>
+        <a href="mailto:waltsin@pm.me" class="btn btn-primary" aria-label="Email WaltSin">Email WaltSin</a>
+      </div>
+      <p class="contact-closing reveal" style="transition-delay:0.1s"><em>"He won't bite. Probably."</em></p>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer id="site-footer" role="contentinfo">
+    <p class="footer-text">
+      &copy; 2026 WaltSin &nbsp;·&nbsp;
+      <a href="mailto:waltsin@pm.me">waltsin@pm.me</a> &nbsp;·&nbsp;
+      APRA: Bradley John Garnett 418902
+    </p>
+  </footer>
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script>
+    // ---- NAV: scroll state ----
+    const nav = document.getElementById('site-nav');
+    let lastScroll = 0;
+    function updateNav() {
+      if (window.scrollY > 40) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    // ---- NAV: hamburger ----
+    const hamburger = document.getElementById('nav-hamburger');
+    const drawer = document.getElementById('nav-drawer');
+
+    function openDrawer() {
+      hamburger.classList.add('open');
+      drawer.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      hamburger.setAttribute('aria-label', 'Close menu');
+    }
+    function closeDrawer() {
+      hamburger.classList.remove('open');
+      drawer.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'Open menu');
+    }
+
+    hamburger.addEventListener('click', function() {
+      if (drawer.classList.contains('open')) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    });
+
+    // Close drawer when a link is tapped
+    document.querySelectorAll('.nav-drawer-link').forEach(function(link) {
+      link.addEventListener('click', closeDrawer);
+    });
+
+    // ---- BIO: read more toggle ----
+    const bioToggle = document.getElementById('bio-toggle-btn');
+    const bioExtended = document.getElementById('bio-extended');
+
+    bioToggle.addEventListener('click', function() {
+      const isOpen = bioExtended.classList.contains('open');
+      if (isOpen) {
+        bioExtended.classList.remove('open');
+        bioExtended.setAttribute('aria-hidden', 'true');
+        bioToggle.textContent = 'Read more';
+        bioToggle.setAttribute('aria-expanded', 'false');
+      } else {
+        bioExtended.classList.add('open');
+        bioExtended.setAttribute('aria-hidden', 'false');
+        bioToggle.textContent = 'Read less';
+        bioToggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    // ---- SCROLL ANIMATIONS: IntersectionObserver ----
+    const revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+
+    // ---- PLATFORM STUBS: tooltip on touch ----
+    document.querySelectorAll('.platform-stub').forEach(function(stub) {
+      stub.addEventListener('click', function(e) {
+        e.preventDefault();
+      });
+    });
+  </script>
+
+</body>
+</html>
