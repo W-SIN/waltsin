@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — WaltSin</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23141008'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='serif' font-size='20' font-weight='bold' fill='%23c8922a'>W</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #141008;
+      --surface:      #1e1710;
+      --text-primary: #e4ceaa;
+      --text-muted:   #9e8a6a;
+      --accent:       #c8922a;
+      --accent-warm:  #a0522d;
+      --divider:      #3a2e1e;
+      --white:        #f5ead8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Libre Caslon Text', Georgia, serif;
+      overflow-x: hidden;
+    }
+
+    /* Grain */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+    }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      background: rgba(20, 16, 8, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--divider);
+      z-index: 100;
+    }
+    .nav-wordmark {
+      font-family: 'IM Fell English', serif;
+      font-size: 1.4rem;
+      color: var(--white);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+    .nav-wordmark:hover { color: var(--accent); }
+
+    /* 404 content */
+    .error-page {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .error-number {
+      font-family: 'IM Fell English', serif;
+      font-size: clamp(6rem, 22vw, 14rem);
+      color: var(--accent);
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 100ms;
+    }
+    .error-message {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 3vw, 1.3rem);
+      color: var(--text-primary);
+      max-width: 420px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 350ms;
+    }
+    .error-back {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.7rem 1.8rem;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      background: transparent;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 550ms;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .error-back:hover {
+      background: rgba(200, 146, 42, 0.12);
+      color: var(--white);
+      box-shadow: 0 0 14px rgba(200, 146, 42, 0.25);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-wordmark" aria-label="WaltSin — home">WaltSin</a>
+  </nav>
+
+  <main>
+    <div class="error-page">
+      <p class="error-number" aria-label="404 — page not found">404</p>
+      <p class="error-message">"Nothing here but ghosts and old guitar strings."</p>
+      <a href="/" class="error-back" aria-label="Back to waltsin.com">← Back to waltsin.com</a>
+    </div>
+  </main>
+
+</body>
+</html>
