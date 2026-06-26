@@ -662,7 +662,50 @@
       margin-top: 0.5rem;
     }
 
-
+    /* Highlights reel */
+    .highlights-heading {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 3rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .highlights-heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+    .highlight-item {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--divider);
+      opacity: 0.8;
+    }
+    .highlight-item:first-child { border-top: 1px solid var(--divider); }
+    .highlight-date {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.15rem;
+    }
+    .highlight-venue {
+      font-family: 'Libre Caslon Text', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.1rem;
+    }
+    .highlight-details {
+      font-family: 'Libre Caslon Text', serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
 
     /* ========== EPK ========== */
     .epk-grid {
@@ -1070,9 +1113,48 @@
             <p class="show-context">Supporting Boss Stomp</p>
           </li>
 
+          <li class="show-item">
+            <p class="show-date">Sat 11 July 2026</p>
+            <p class="show-venue">NAIDOC Week — 50 Years Deadly Celebration</p>
+            <p class="show-details">Bush Tucker Garden, Sandy Beach Reserve, Woolgoolga &nbsp;&middot;&nbsp; 9:30am&ndash;2pm &nbsp;&middot;&nbsp; Free</p>
+          </li>
+
           <!-- END UPCOMING SHOWS — if list is empty, delete the <ul> above and uncomment below:
           <p class="live-no-shows">No shows announced. Join the <a href="#mailing">mailing list</a> to be first to know.</p>
           -->
+
+        </ul>
+      </div>
+
+      <!-- HIGHLIGHTS REEL — curated, grows over time, nothing gets removed -->
+      <div class="reveal" style="transition-delay:0.1s">
+        <p class="highlights-heading">Highlights</p>
+        <ul class="shows-list">
+
+          <!-- ADD HIGHLIGHTS HERE -->
+          <li class="highlight-item">
+            <p class="highlight-date">Jun 2026</p>
+            <p class="highlight-venue">Winter Solstice &mdash; Woopi Brewing Co, Woolgoolga</p>
+            <p class="highlight-details">With Felicity Lawless &amp; Band</p>
+          </li>
+
+          <li class="highlight-item">
+            <p class="highlight-date">Feb 2026</p>
+            <p class="highlight-venue">Urunga Originals &mdash; Urunga Riverfront Stage</p>
+            <p class="highlight-details">First WaltSin performance</p>
+          </li>
+
+          <li class="highlight-item">
+            <p class="highlight-date">Oct 2025</p>
+            <p class="highlight-venue">Next Gen Makers Exhibition Launch</p>
+            <p class="highlight-details">Saltwater Freshwater Arts Alliance</p>
+          </li>
+
+          <li class="highlight-item">
+            <p class="highlight-date">Mar 2025</p>
+            <p class="highlight-venue">Recipe Single Launch Tour</p>
+            <p class="highlight-details">Jesse Morris &amp; The Shakedown &mdash; percussion</p>
+          </li>
 
         </ul>
       </div>
