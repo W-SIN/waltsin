@@ -14,24 +14,24 @@
   - Changes go live automatically within ~30 seconds
   - To add tour dates: find the LIVE SECTION comment, add dates there
   - To activate platform links: find PLATFORM STUBS and replace # with real URLs
-  - To add press photo download links: find GOOGLE_DRIVE_LINK_PLACEHOLDER x3
+  - Press photo download links are now live (3x, wired to waltsinmusic Drive files)
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WaltSin — Folk, Blues &amp; Roots | Coffs Harbour NSW</title>
-  <meta name="description" content="WaltSin is an emerging singer-songwriter from Coffs Harbour, Australia — folk, blues, live looping and hillbilly rock. Book for festivals and venues.">
-  <meta name="keywords" content="WaltSin, folk blues Australia, Coffs Harbour musician, live looping, singer songwriter NSW, roots music, EPK, booking">
+  <title>WaltSin — Old Spells &amp; New Beginnings</title>
+  <meta name="description" content="WaltSin's Gentle Confession, dark folk and roots out of Coffs Harbour, NSW.">
+  <meta name="keywords" content="WaltSin, WaltSin's Gentle Confession, dark folk Australia, Coffs Harbour musician, singer songwriter NSW, roots music, EPK, booking">
   <meta property="og:title" content="WaltSin">
-  <meta property="og:description" content="Old spells &amp; new beginnings. Folk, blues and roots from Coffs Harbour, NSW.">
+  <meta property="og:description" content="WaltSin's Gentle Confession, dark folk and roots out of Coffs Harbour, NSW.">
   <meta property="og:image" content="https://waltsin.com/images/og.jpg">
   <meta property="og:url" content="https://waltsin.com">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="WaltSin">
-  <meta name="twitter:description" content="Old spells &amp; new beginnings. Folk, blues and roots from Coffs Harbour, NSW.">
+  <meta name="twitter:description" content="WaltSin's Gentle Confession, dark folk and roots out of Coffs Harbour, NSW.">
   <meta name="twitter:image" content="https://waltsin.com/images/og.jpg">
   <link rel="canonical" href="https://waltsin.com">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23141008'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='serif' font-size='20' font-weight='bold' fill='%23c8922a'>W</text></svg>">
@@ -449,59 +449,6 @@
       margin: 2.5rem 0;
       line-height: 1.7;
     }
-    #bio-extended { display: none; }
-    #bio-extended.open { display: block; }
-    .bio-toggle {
-      font-family: 'Special Elite', monospace;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      transition: color 0.2s ease;
-    }
-    .bio-toggle:hover { color: var(--white); }
-
-    /* Bio photos */
-    .bio-photos {
-      display: grid;
-      grid-template-columns: 1fr 0.65fr;
-      gap: 1.5rem;
-      margin-top: 3rem;
-      align-items: start;
-    }
-    .bio-photo-wrap {
-      overflow: hidden;
-      border-radius: 2px;
-      border: 1px solid var(--divider);
-    }
-    .bio-photo-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 2px;
-      filter: sepia(20%) brightness(0.92);
-      transition: filter 0.4s ease;
-    }
-    .bio-photo-wrap:first-child img { filter: sepia(30%) brightness(0.88) saturate(1.1); }
-    .bio-photo-wrap:hover img { filter: sepia(10%) brightness(0.96); }
-    .bio-photo-caption {
-      font-family: 'Special Elite', monospace;
-      font-style: italic;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-top: 0.5rem;
-      text-align: center;
-    }
-    @media (max-width: 600px) {
-      .bio-photos { grid-template-columns: 1fr; }
-      .bio-photo-wrap:nth-child(2) { max-width: 280px; margin: 0 auto; }
-    }
-
     /* ========== MUSIC ========== */
     .music-subsection { margin-bottom: 3.5rem; }
     .subsection-heading {
@@ -973,37 +920,16 @@
         <h2 class="section-heading reveal" id="bio-heading">WaltSin</h2>
 
         <div class="reveal" style="transition-delay:0.1s">
-          <p>Walt Sin is an Australian multi-instrumentalist and singer-songwriter — a theatrical mourner, a raging sermoniser, a very drunk nuisance. Raised on hymns and running on bass, he builds songs from broken things, moving through folk, roots, blues, funk and hillbilly rock.</p>
+          <p>WaltSin is a raging sermoniser and bottle-busted confessor, now shaking it off in the long burn, joined by the theatrical mourners of WaltSin's Gentle Confession. Raised on hymns, built on rhythm, the songs move through dark folk, obscure roots and hazy monologues, songs built from broken things: a snapped lap steel string, a hungover kick drum, the long walk back from some very drunk years.</p>
         </div>
 
         <blockquote class="bio-pullquote reveal" style="transition-delay:0.15s">
           "As the lingering corpse flower stinks sweetest after years spent rotting, so does the nectar darken with time. So can a song brew in the shadows."
         </blockquote>
 
-        <div id="bio-extended" aria-hidden="true">
-          <p>Sin has filled hundreds of slots on the Australian festival circuit — as drummer for funk-roots outfit Fat Picnic (Splendour in the Grass, Woodford Folk Festival), and as frontman of indie-folk ensemble Gentle Persons Club, leading narrative-rich sets from sticky-carpeted corners to big stages. He continues with Jesse Morris &amp; The Shakedown on percussion for select regional appearances.</p>
-          <p>A global unravelling brought him back to Coffs Harbour, where he built a recording studio from the ground up. His songs weave broken things together — a snapped lap steel string, a hungover kick drum — reaching now toward EDM and live drum &amp; bass. From sleeping under a church pew to an alleyway beside the bar: this is his sobering confession.</p>
-        </div>
-
         <div class="reveal" style="transition-delay:0.2s">
-          <button class="bio-toggle" id="bio-toggle-btn" aria-expanded="false" aria-controls="bio-extended">Read more</button>
-        </div>
-
-        <!-- Bio Photos -->
-        <div class="bio-photos reveal" style="transition-delay:0.25s">
-          <div class="bio-photo-wrap">
-            <img src="images/bio-colour.jpg"
-                 alt="WaltSin on an armchair in subtropical bush, guitar in hand, with a knife on the stump beside him — warm amber tones"
-                 loading="lazy">
-          </div>
-          <div>
-            <div class="bio-photo-wrap">
-              <img src="images/bio-lawnmower.jpg"
-                   alt="WaltSin mowing the lawn in a hat and underpants — a film photograph"
-                   loading="lazy">
-            </div>
-            <p class="bio-photo-caption">He also does this.</p>
-          </div>
+          <p>Sin has filled hundreds of slots on the Australian festival circuit as frontman of indie-folk ensemble Gentle Persons Club, leading narrative-rich sets from sticky-carpeted corners to big stages, and as drummer for funk-roots outfit Fat Picnic (Splendour in the Grass, Woodford Folk Festival). He appears on percussion, drums or guitar for a few touring artists.</p>
+          <p>A global unravelling brought him back to Coffs Harbour, to build a studio for writing and production, putting out songs inspired by sleeping under a church pew and an alleyway beside the bar. This is his sobering confession.</p>
         </div>
       </div>
     </section>
@@ -1219,21 +1145,21 @@
                  alt="WaltSin colour portrait — looking directly at camera, seated in armchair in bush setting"
                  loading="lazy">
             <p class="press-photo-label">Portrait — Colour</p>
-            <a href="GOOGLE_DRIVE_LINK_PLACEHOLDER" target="_blank" rel="noopener noreferrer" class="press-download">↓ Download Hi-Res</a>
+            <a href="https://drive.google.com/file/d/15076DWYyw00Ix2Fs9omlNUKkMimIMOVO/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="press-download">↓ Download Hi-Res</a>
           </div>
           <div class="press-photo-item">
             <img src="images/bio-colour.jpg"
                  alt="WaltSin in the field — armchair in subtropical bush, knife on stump, guitar in hand. Warm amber tones."
                  loading="lazy">
             <p class="press-photo-label">In the Field — Colour</p>
-            <a href="GOOGLE_DRIVE_LINK_PLACEHOLDER" target="_blank" rel="noopener noreferrer" class="press-download">↓ Download Hi-Res</a>
+            <a href="https://drive.google.com/file/d/1Sjzbwi2t6Kq1dCxpxVA3jz27ND1kBdli/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="press-download">↓ Download Hi-Res</a>
           </div>
           <div class="press-photo-item">
             <img src="images/hero.jpg"
                  alt="WaltSin in the field — black and white portrait, seated in armchair in dark subtropical bush, playing white guitar"
                  loading="lazy">
             <p class="press-photo-label">In the Field — B&amp;W</p>
-            <a href="GOOGLE_DRIVE_LINK_PLACEHOLDER" target="_blank" rel="noopener noreferrer" class="press-download">↓ Download Hi-Res</a>
+            <a href="https://drive.google.com/file/d/1EweCA9_BrFjzl9499FTzKoiQNxIZOwQn/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="press-download">↓ Download Hi-Res</a>
           </div>
         </div>
       </div>
@@ -1387,25 +1313,6 @@
     // Close drawer when a link is tapped
     document.querySelectorAll('.nav-drawer-link').forEach(function(link) {
       link.addEventListener('click', closeDrawer);
-    });
-
-    // ---- BIO: read more toggle ----
-    const bioToggle = document.getElementById('bio-toggle-btn');
-    const bioExtended = document.getElementById('bio-extended');
-
-    bioToggle.addEventListener('click', function() {
-      const isOpen = bioExtended.classList.contains('open');
-      if (isOpen) {
-        bioExtended.classList.remove('open');
-        bioExtended.setAttribute('aria-hidden', 'true');
-        bioToggle.textContent = 'Read more';
-        bioToggle.setAttribute('aria-expanded', 'false');
-      } else {
-        bioExtended.classList.add('open');
-        bioExtended.setAttribute('aria-hidden', 'false');
-        bioToggle.textContent = 'Read less';
-        bioToggle.setAttribute('aria-expanded', 'true');
-      }
     });
 
     // ---- SCROLL ANIMATIONS: IntersectionObserver ----
