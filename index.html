@@ -711,38 +711,35 @@
       color: var(--text-muted);
       margin-bottom: 1.2rem;
     }
-    .press-photos-grid {
+    .photo-gallery-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
       gap: 1.2rem;
     }
-    @media (max-width: 700px) {
-      .press-photos-grid { grid-template-columns: 1fr; }
-    }
-    .press-photo-item { display: flex; flex-direction: column; gap: 0.6rem; }
-    .press-photo-item img {
+    .gallery-item { display: flex; flex-direction: column; gap: 0.4rem; }
+    .gallery-item img {
       width: 100%;
-      height: 350px;
+      height: 210px;
       object-fit: cover;
       border-radius: 2px;
       border: 1px solid var(--divider);
       background: var(--surface);
     }
-    .press-photo-label {
+    .gallery-caption {
       font-family: 'Special Elite', monospace;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: var(--text-muted);
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
     }
-    .press-download {
+    .gallery-download {
       font-family: 'Special Elite', monospace;
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       color: var(--accent);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-decoration: none;
       transition: color 0.2s ease;
     }
-    .press-download:hover { color: var(--white); }
+    .gallery-download:hover { color: var(--white); }
 
     /* ========== SOCIALS ========== */
     .socials-grid {
@@ -1136,35 +1133,116 @@
         </div>
       </div>
 
-      <!-- Press Photos -->
+      <!-- Press Photos / Full Gallery -->
       <div class="press-photos-section reveal" style="transition-delay:0.15s">
-        <p class="press-photos-heading">Press Photos</p>
-        <div class="press-photos-grid">
-          <div class="press-photo-item">
-            <img src="images/epk-portrait.jpg"
-                 alt="WaltSin colour portrait — looking directly at camera, seated in armchair in bush setting"
-                 loading="lazy">
-            <p class="press-photo-label">Portrait — Colour</p>
-            <a href="https://drive.google.com/file/d/15076DWYyw00Ix2Fs9omlNUKkMimIMOVO/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="press-download">↓ Download Hi-Res</a>
+        <p class="press-photos-heading">Photos</p>
+        <div class="photo-gallery-grid">
+          <div class="gallery-item">
+            <img src="images/gallery/bus-landscape-bw.jpg" alt="WaltSin promo photo — Bus — B&amp;W" loading="lazy">
+            <p class="gallery-caption">Bus — B&amp;W</p>
+            <a href="https://drive.google.com/file/d/13Lvj_J4V2fDUo3JGAaNtHMQ5Ge5s0bYH/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
           </div>
-          <div class="press-photo-item">
-            <img src="images/bio-colour.jpg"
-                 alt="WaltSin in the field — armchair in subtropical bush, knife on stump, guitar in hand. Warm amber tones."
-                 loading="lazy">
-            <p class="press-photo-label">In the Field — Colour</p>
-            <a href="https://drive.google.com/file/d/1Sjzbwi2t6Kq1dCxpxVA3jz27ND1kBdli/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="press-download">↓ Download Hi-Res</a>
+          <div class="gallery-item">
+            <img src="images/gallery/cleaver-portrait-bw.jpg" alt="WaltSin promo photo — Cleaver — B&amp;W Portrait" loading="lazy">
+            <p class="gallery-caption">Cleaver — B&amp;W Portrait</p>
+            <a href="https://drive.google.com/file/d/1YYOTiEGtepLHYQzIEpT7PK5NWwA_Rr41/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
           </div>
-          <div class="press-photo-item">
-            <img src="images/hero.jpg"
-                 alt="WaltSin in the field — black and white portrait, seated in armchair in dark subtropical bush, playing white guitar"
-                 loading="lazy">
-            <p class="press-photo-label">In the Field — B&amp;W</p>
-            <a href="https://drive.google.com/file/d/1EweCA9_BrFjzl9499FTzKoiQNxIZOwQn/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="press-download">↓ Download Hi-Res</a>
+          <div class="gallery-item">
+            <img src="images/gallery/couch-bw-landscape.jpg" alt="WaltSin promo photo — Couch — B&amp;W Landscape" loading="lazy">
+            <p class="gallery-caption">Couch — B&amp;W Landscape</p>
+            <a href="https://drive.google.com/file/d/1LfzkwJURG7DCQjIrCIOhlAU9g0i_gqPw/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery/couch-bw-6000x4000.jpg" alt="WaltSin promo photo — Couch — B&amp;W" loading="lazy">
+            <p class="gallery-caption">Couch — B&amp;W</p>
+            <a href="https://drive.google.com/file/d/1YdJNGQrifrzud6gYT56WV3GoYpd-GyfC/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery/couch-bw-hero.jpg" alt="WaltSin promo photo — Couch — B&amp;W Hero" loading="lazy">
+            <p class="gallery-caption">Couch — B&amp;W Hero</p>
+            <a href="https://drive.google.com/file/d/1EweCA9_BrFjzl9499FTzKoiQNxIZOwQn/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery/couch-epk.jpg" alt="WaltSin promo photo — Couch — EPK Portrait" loading="lazy">
+            <p class="gallery-caption">Couch — EPK Portrait</p>
+            <a href="https://drive.google.com/file/d/15076DWYyw00Ix2Fs9omlNUKkMimIMOVO/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery/couch-grainey-colour.jpg" alt="WaltSin promo photo — Couch — Grainy Colour" loading="lazy">
+            <p class="gallery-caption">Couch — Grainy Colour</p>
+            <a href="https://drive.google.com/file/d/1b87vUX-vysypI_54gS9C0KXoQBGTG3gi/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery/couch-hero-1.jpg" alt="WaltSin promo photo — Couch — Hero" loading="lazy">
+            <p class="gallery-caption">Couch — Hero</p>
+            <a href="https://drive.google.com/file/d/14oi9l8byjqv7cdoqClf9v-iZy-LH5frh/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery/couch-hero-2433.jpg" alt="WaltSin promo photo — Couch — Hero" loading="lazy">
+            <p class="gallery-caption">Couch — Hero</p>
+            <a href="https://drive.google.com/file/d/17OyhEh6CH6dNSV-CxnWWDhTvUAfmI7m5/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery/couch-hero-vintage.jpg" alt="WaltSin promo photo — Couch — Vintage" loading="lazy">
+            <p class="gallery-caption">Couch — Vintage</p>
+            <a href="https://drive.google.com/file/d/1Sjzbwi2t6Kq1dCxpxVA3jz27ND1kBdli/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery/couch-space-up-top.jpg" alt="WaltSin promo photo — Couch — Space Up Top" loading="lazy">
+            <p class="gallery-caption">Couch — Space Up Top</p>
+            <a href="https://drive.google.com/file/d/1VP_xZ5_2ZHc35yUePmew3eQ35riC4Qtz/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery/couch-stare-bw.jpg" alt="WaltSin promo photo — Couch — Stare, B&amp;W" loading="lazy">
+            <p class="gallery-caption">Couch — Stare, B&amp;W</p>
+            <a href="https://drive.google.com/file/d/1c4xf8iRRbW1IzXrE10IyssS1QAPkGW1l/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery/fat-rose-eater.jpg" alt="WaltSin promo photo — Fat Rose — Eater" loading="lazy">
+            <p class="gallery-caption">Fat Rose — Eater</p>
+            <a href="https://drive.google.com/file/d/1q0xos-TE8NXrrnrpf_jcklidGuS57vBk/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery/fat-rose-looker.jpg" alt="WaltSin promo photo — Fat Rose — Looker" loading="lazy">
+            <p class="gallery-caption">Fat Rose — Looker</p>
+            <a href="https://drive.google.com/file/d/11OGBh0okaYFf4pNPcfgteATRAMMTe41T/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery/mower-spark.jpg" alt="WaltSin promo photo — Mower — Spark" loading="lazy">
+            <p class="gallery-caption">Mower — Spark</p>
+            <a href="https://drive.google.com/file/d/1vR1bKSIJYAq_n5_cmfN0UKZEvMvtB4Ur/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery/mowing-landscape.jpg" alt="WaltSin promo photo — Mowing — Landscape" loading="lazy">
+            <p class="gallery-caption">Mowing — Landscape</p>
+            <a href="https://drive.google.com/file/d/1skCGQkDBCCIBdliERonE9XA08jVH6cMj/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery/mowing-pull.jpg" alt="WaltSin promo photo — Mowing — Pull" loading="lazy">
+            <p class="gallery-caption">Mowing — Pull</p>
+            <a href="https://drive.google.com/file/d/1LZ6V-BivoyHhpN7DS6OcdDJCfaoB6Uo1/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery/mowing-stank-colour.jpg" alt="WaltSin promo photo — Mowing — Stank, Colour" loading="lazy">
+            <p class="gallery-caption">Mowing — Stank, Colour</p>
+            <a href="https://drive.google.com/file/d/1rebw03uUrGCx2ryFCbEbkEdfe2Xo7Vdd/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery/smoking-fingers.jpg" alt="WaltSin promo photo — Smoking — Fingers" loading="lazy">
+            <p class="gallery-caption">Smoking — Fingers</p>
+            <a href="https://drive.google.com/file/d/1_YhfLGM6aNc_GQzYFRqu4VVosKyjuHFk/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery/smoking-fulllength-colour.jpg" alt="WaltSin promo photo — Smoking — Full Length, Colour" loading="lazy">
+            <p class="gallery-caption">Smoking — Full Length, Colour</p>
+            <a href="https://drive.google.com/file/d/1Y1Xpf1ZiH0gQ50kkn1oADk_v6ZRX_ekx/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery/smoking-torso.jpg" alt="WaltSin promo photo — Smoking — Torso" loading="lazy">
+            <p class="gallery-caption">Smoking — Torso</p>
+            <a href="https://drive.google.com/file/d/1_oB9ndn19UFXRSuZxrzyfw2Rc4rlGPE8/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
           </div>
         </div>
-        <p style="margin-top:1.5rem;">
-          <a href="https://drive.google.com/drive/folders/1ZLp0xosK7YYfAOQ-_Wp4bw_weVG1SPZT?usp=sharing" target="_blank" rel="noopener noreferrer" class="press-download">Browse all promo photos →</a>
-        </p>
       </div>
     </section>
 
