@@ -190,16 +190,17 @@
     .nav-wordmark:hover { color: var(--accent); }
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 1.15rem;
       list-style: none;
     }
     .nav-links a {
       font-family: 'Special Elite', monospace;
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--text-muted);
       transition: color 0.2s ease;
+      white-space: nowrap;
     }
     .nav-links a:hover { color: var(--accent); }
 
@@ -259,7 +260,7 @@
     }
     .nav-drawer ul a:hover { color: var(--accent); }
 
-    @media (max-width: 767px) {
+    @media (max-width: 960px) {
       .nav-hamburger { display: flex; }
       .nav-links { display: none; }
       .nav-drawer { display: block; }
@@ -919,9 +920,14 @@
   <nav id="site-nav" role="navigation" aria-label="Main navigation">
     <a href="#" class="nav-wordmark" aria-label="WaltSin — home">WaltSin</a>
     <ul class="nav-links" role="list">
+      <li><a href="#bio">Bio</a></li>
       <li><a href="#music">Music</a></li>
+      <li><a href="#live">Live</a></li>
       <li><a href="#epk">EPK</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#press-snippets">Press Kit</a></li>
+      <li><a href="#socials">Socials</a></li>
+      <li><a href="#mailing">Mailing List</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
@@ -932,12 +938,14 @@
   <!-- Mobile drawer -->
   <div class="nav-drawer" id="nav-drawer" role="dialog" aria-label="Navigation menu">
     <ul role="list">
+      <li><a href="#bio" class="nav-drawer-link">Bio</a></li>
       <li><a href="#music" class="nav-drawer-link">Music</a></li>
+      <li><a href="#live" class="nav-drawer-link">Live</a></li>
       <li><a href="#epk" class="nav-drawer-link">EPK</a></li>
       <li><a href="#services" class="nav-drawer-link">Services</a></li>
       <li><a href="#press-snippets" class="nav-drawer-link">Press Kit</a></li>
-      <li><a href="#live" class="nav-drawer-link">Live</a></li>
       <li><a href="#socials" class="nav-drawer-link">Socials</a></li>
+      <li><a href="#mailing" class="nav-drawer-link">Mailing List</a></li>
       <li><a href="#contact" class="nav-drawer-link">Contact</a></li>
     </ul>
   </div>
