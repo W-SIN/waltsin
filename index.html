@@ -712,24 +712,32 @@
       margin-bottom: 1.2rem;
     }
     .photo-gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 1.2rem;
+      columns: 4 200px;
+      column-gap: 1.2rem;
     }
-    .gallery-item { display: flex; flex-direction: column; gap: 0.4rem; }
+    .gallery-item {
+      break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+      margin-bottom: 1.2rem;
+    }
     .gallery-item img {
       width: 100%;
-      height: 210px;
-      object-fit: cover;
+      height: auto;
+      display: block;
+      margin-bottom: 0.4rem;
       border-radius: 2px;
       border: 1px solid var(--divider);
       background: var(--surface);
+    }
+    @media (max-width: 700px) {
+      .photo-gallery-grid { columns: 2 140px; }
     }
     .gallery-caption {
       font-family: 'Special Elite', monospace;
       font-size: 0.7rem;
       color: var(--text-muted);
       letter-spacing: 0.04em;
+      margin-bottom: 0.3rem;
     }
     .gallery-download {
       font-family: 'Special Elite', monospace;
@@ -869,6 +877,7 @@
     <ul class="nav-links" role="list">
       <li><a href="#music">Music</a></li>
       <li><a href="#epk">EPK</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
@@ -881,6 +890,7 @@
     <ul role="list">
       <li><a href="#music" class="nav-drawer-link">Music</a></li>
       <li><a href="#epk" class="nav-drawer-link">EPK</a></li>
+      <li><a href="#services" class="nav-drawer-link">Services</a></li>
       <li><a href="#live" class="nav-drawer-link">Live</a></li>
       <li><a href="#socials" class="nav-drawer-link">Socials</a></li>
       <li><a href="#contact" class="nav-drawer-link">Contact</a></li>
@@ -1023,23 +1033,15 @@
 
           <!-- ADD UPCOMING SHOWS HERE -->
           <li class="show-item">
-            <p class="show-date">Sat 28 June 2026</p>
-            <p class="show-venue">Woopi Brewing Co</p>
-            <p class="show-details">Woolgoolga NSW &nbsp;·&nbsp; 5–8pm &nbsp;·&nbsp; Free entry</p>
-            <p class="show-context">Winter Solstice — with Felicity Lawless &amp; Band (WaltSin on percussion)</p>
+            <p class="show-date">Fri 24 July 2026</p>
+            <p class="show-venue">Rattle Bar &amp; Restaurant</p>
+            <p class="show-details">Emerald Beach NSW &nbsp;·&nbsp; 6:00–8:00pm</p>
           </li>
 
           <li class="show-item">
-            <p class="show-date">Thu 10 July 2026</p>
-            <p class="show-venue">Stef &amp; Co</p>
-            <p class="show-details">319–321 Harbour Dr, Coffs Harbour &nbsp;·&nbsp; From 6:30pm &nbsp;·&nbsp; Free entry</p>
-            <p class="show-context">Supporting Boss Stomp</p>
-          </li>
-
-          <li class="show-item">
-            <p class="show-date">Sat 11 July 2026</p>
-            <p class="show-venue">NAIDOC Week — 50 Years Deadly Celebration</p>
-            <p class="show-details">Bush Tucker Garden, Sandy Beach Reserve, Woolgoolga &nbsp;&middot;&nbsp; 9:30am&ndash;2pm &nbsp;&middot;&nbsp; Free</p>
+            <p class="show-date">Sat 25 July 2026</p>
+            <p class="show-venue">Mogul Beer Co</p>
+            <p class="show-details">Woolgoolga NSW &nbsp;·&nbsp; 5:30–7:30pm</p>
           </li>
 
           <!-- END UPCOMING SHOWS — if list is empty, delete the <ul> above and uncomment below:
@@ -1055,6 +1057,18 @@
         <ul class="shows-list">
 
           <!-- ADD HIGHLIGHTS HERE -->
+          <li class="highlight-item">
+            <p class="highlight-date">Jul 2026</p>
+            <p class="highlight-venue">NAIDOC Week &mdash; 50 Years Deadly Celebration, Woolgoolga</p>
+            <p class="highlight-details">Bush Tucker Garden, Sandy Beach Reserve</p>
+          </li>
+
+          <li class="highlight-item">
+            <p class="highlight-date">Jul 2026</p>
+            <p class="highlight-venue">Stef &amp; Co, Coffs Harbour</p>
+            <p class="highlight-details">Supporting Boss Stomp</p>
+          </li>
+
           <li class="highlight-item">
             <p class="highlight-date">Jun 2026</p>
             <p class="highlight-venue">Winter Solstice &mdash; Woopi Brewing Co, Woolgoolga</p>
@@ -1243,6 +1257,51 @@
             <a href="https://drive.google.com/file/d/1_oB9ndn19UFXRSuZxrzyfw2Rc4rlGPE8/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-download">↓ Download Hi-Res</a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"><span>✦</span></div>
+
+    <!-- ========== SERVICES ========== -->
+    <section id="services" class="site-section" aria-labelledby="services-heading">
+      <h2 class="section-heading reveal" id="services-heading">Services &amp; Packages</h2>
+      <p class="subsection-intro reveal" style="transition-delay:0.05s">From solo acoustic sets to full wedding production — bookings shaped around what the event actually needs.</p>
+
+      <div class="music-subsection reveal" style="transition-delay:0.1s">
+        <h3 class="subsection-heading">Festivals &amp; Live Events</h3>
+        <p class="epk-value">Solo sets or full band as WaltSin's Gentle Confession. Originals, covers, or both — vibe and format discussed prior to booking to match the event.</p>
+        <div class="platform-grid" style="margin-top:1rem;">
+          <span class="platform-link" style="cursor:default;">Solo — from $120/hr (3hrs+)</span>
+          <span class="platform-link" style="cursor:default;">Solo — $170/hr (under 3hrs)</span>
+          <span class="platform-link" style="cursor:default;">DJ Sets — from $100/hr</span>
+        </div>
+      </div>
+
+      <div class="music-subsection reveal" style="transition-delay:0.15s">
+        <h3 class="subsection-heading">Weddings</h3>
+        <p class="epk-value">Ceremony, reception, MC duties, multiple setup locations — every wedding is different, and every quote is built around the day itself. Extra care in communication, well ahead of time.</p>
+      </div>
+
+      <div class="epk-grid" style="margin-top:0.5rem;">
+        <div class="epk-contact-panel reveal" style="transition-delay:0.1s">
+          <p class="epk-contact-heading">Event Package</p>
+          <p class="epk-value">Up to five hours of live music &amp; DJ performance, pro PA system, DJ equipment and wash lighting, for a flat fee. Travel and downtime not included.</p>
+          <p class="epk-value" style="margin-top:0.8rem; font-family:'Special Elite',monospace; color:var(--accent); font-size:0.85rem; letter-spacing:0.05em;">From $1,000 flat</p>
+        </div>
+        <div class="epk-contact-panel reveal" style="transition-delay:0.15s">
+          <p class="epk-contact-heading">Wedding Package</p>
+          <p class="epk-value">Music and/or DJ sets, equipment hire, celebrant/speech/MC support, multiple setup locations, extended time — built to fit your requirements.</p>
+          <p class="epk-value" style="margin-top:0.8rem; font-family:'Special Elite',monospace; color:var(--accent); font-size:0.85rem; letter-spacing:0.05em;">Custom quote</p>
+        </div>
+      </div>
+
+      <div class="reveal" style="margin-top:2rem; transition-delay:0.2s;">
+        <p class="epk-label">Equipment &amp; Add-Ons</p>
+        <p class="epk-value">Portable or pro PA systems · DJ booth with LED rig, stage lights, disco ball &amp; haze · Venue wash lighting · MC duties · Travel beyond 1hr return from Moonee Beach</p>
+      </div>
+
+      <div class="reveal" style="margin-top:2.5rem; text-align:center; transition-delay:0.25s;">
+        <a href="mailto:waltsin@pm.me?subject=Event%20Enquiry" class="btn btn-primary" aria-label="Email WaltSin for a quote">Get a Quote</a>
       </div>
     </section>
 
