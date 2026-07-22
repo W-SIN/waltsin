@@ -749,6 +749,50 @@
     }
     .gallery-download:hover { color: var(--white); }
 
+    /* ========== PRESS SNIPPETS ========== */
+    .snippet-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: var(--max-content);
+    }
+    @media (max-width: 767px) {
+      .snippet-list { grid-template-columns: 1fr; }
+    }
+    .snippet-card {
+      background: var(--surface);
+      border: 1px solid var(--divider);
+      border-radius: 2px;
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .snippet-label {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.7rem;
+    }
+    .snippet-text {
+      font-family: 'Libre Caslon Text', serif;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: var(--text-primary);
+      margin-bottom: 1.2rem;
+      flex-grow: 1;
+    }
+    .copy-btn {
+      align-self: flex-start;
+      font-size: 0.75rem;
+      padding: 0.55rem 1.4rem;
+    }
+    .copy-btn.copied {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
     /* ========== SOCIALS ========== */
     .socials-grid {
       display: flex;
@@ -891,6 +935,7 @@
       <li><a href="#music" class="nav-drawer-link">Music</a></li>
       <li><a href="#epk" class="nav-drawer-link">EPK</a></li>
       <li><a href="#services" class="nav-drawer-link">Services</a></li>
+      <li><a href="#press-snippets" class="nav-drawer-link">Press Kit</a></li>
       <li><a href="#live" class="nav-drawer-link">Live</a></li>
       <li><a href="#socials" class="nav-drawer-link">Socials</a></li>
       <li><a href="#contact" class="nav-drawer-link">Contact</a></li>
@@ -1307,6 +1352,40 @@
 
     <div class="section-divider" aria-hidden="true"><span>✦</span></div>
 
+    <!-- ========== PRESS SNIPPETS ========== -->
+    <section id="press-snippets" class="site-section" aria-labelledby="press-snippets-heading">
+      <h2 class="section-heading reveal" id="press-snippets-heading">For Venues &amp; Festivals</h2>
+      <p class="subsection-intro reveal" style="transition-delay:0.05s">Ready-to-paste copy for event listings, programs and social posts. Tap to copy.</p>
+
+      <div class="snippet-list">
+        <div class="snippet-card reveal" style="transition-delay:0.1s">
+          <p class="snippet-label">Tagline</p>
+          <p class="snippet-text" id="snippet-tagline">Old Spells &amp; New Beginnings — songs that bleed deep &amp; heal dirty.</p>
+          <button class="btn copy-btn" data-copy-target="snippet-tagline" aria-label="Copy tagline">Copy</button>
+        </div>
+
+        <div class="snippet-card reveal" style="transition-delay:0.15s">
+          <p class="snippet-label">Short — Event Listings (~30 words)</p>
+          <p class="snippet-text" id="snippet-short">WaltSin plays raging sermons and theatrical mourning — dark folk, obscure roots and hazy monologues, solo or full band as WaltSin's Gentle Confession. Songs that bleed deep and heal dirty.</p>
+          <button class="btn copy-btn" data-copy-target="snippet-short" aria-label="Copy short bio">Copy</button>
+        </div>
+
+        <div class="snippet-card reveal" style="transition-delay:0.2s">
+          <p class="snippet-label">Full Bio — Festival Programs (~90 words)</p>
+          <p class="snippet-text" id="snippet-long">WaltSin is a raging sermoniser and bottle-busted confessor, joined by his band of theatrical mourners, WaltSin's Gentle Confession. Raised on hymns, built on rhythm, the songs move through dark folk, obscure roots and hazy monologues, built from broken things: a snapped lap steel string, a hungover kick drum, the long walk back from some very drunk years. Sin has filled hundreds of slots on the Australian festival circuit, from indie-folk ensemble Gentle Persons Club to funk-roots outfit Fat Picnic (Splendour in the Grass, Woodford Folk Festival).</p>
+          <button class="btn copy-btn" data-copy-target="snippet-long" aria-label="Copy full bio">Copy</button>
+        </div>
+
+        <div class="snippet-card reveal" style="transition-delay:0.25s">
+          <p class="snippet-label">Social Tags</p>
+          <p class="snippet-text" id="snippet-tags">#WaltSin #WaltSinsGentleConfession #DarkFolk #RootsMusic #OriginalMusic #LiveMusicAustralia</p>
+          <button class="btn copy-btn" data-copy-target="snippet-tags" aria-label="Copy social tags">Copy</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"><span>✦</span></div>
+
     <!-- ========== SOCIALS ========== -->
     <section id="socials" class="site-section" aria-labelledby="socials-heading">
       <h2 class="section-heading reveal" id="socials-heading">Find WaltSin</h2>
@@ -1470,6 +1549,44 @@
 
     document.querySelectorAll('.reveal').forEach(function(el) {
       revealObserver.observe(el);
+    });
+
+    // ---- PRESS SNIPPETS: copy to clipboard ----
+    document.querySelectorAll('.copy-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var targetId = btn.getAttribute('data-copy-target');
+        var el = document.getElementById(targetId);
+        if (!el) return;
+        var text = el.textContent.trim();
+
+        function showCopied() {
+          var original = btn.textContent;
+          btn.textContent = 'Copied!';
+          btn.classList.add('copied');
+          btn.disabled = true;
+          setTimeout(function() {
+            btn.textContent = original;
+            btn.classList.remove('copied');
+            btn.disabled = false;
+          }, 1600);
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(showCopied).catch(function() {
+            var range = document.createRange();
+            range.selectNodeContents(el);
+            var sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+          });
+        } else {
+          var range = document.createRange();
+          range.selectNodeContents(el);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+      });
     });
 
     // ---- PLATFORM STUBS: tooltip on touch ----
