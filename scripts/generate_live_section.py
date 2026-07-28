@@ -15,10 +15,16 @@ blocks of content inside index.html, between HTML comment markers:
       <details class="past-shows"> in index.html.
 
   <!-- LIVE:HIGHLIGHTS:START --> ... <!-- LIVE:HIGHLIGHTS:END -->
-      "Highlights" reel: any event whose description ends with a trailing
-      "#" (after trimming whitespace) is pulled OUT of the Live/Past shows
-      entirely and rendered here instead, most recent first, uncapped.
+      "Highlights" reel: any PAST event whose description ends with a
+      trailing "#" (after trimming whitespace) is pulled OUT of Past
+      Shows and rendered here instead, most recent first, uncapped.
       The trailing "#" is stripped before the text is used anywhere.
+
+      IMPORTANT: date takes precedence over the tag. An event tagged "#"
+      that hasn't happened yet still shows normally in Live/Upcoming --
+      it only gets reclassified into Highlights the first time the
+      script runs *after* its date has passed. This means you can tag
+      an event the moment you create it and never touch it again.
 
 CALENDAR EVENT CONVENTIONS (fill these in when creating an event):
   Title (SUMMARY)   -> venue / event name           (required)
@@ -30,8 +36,8 @@ CALENDAR EVENT CONVENTIONS (fill these in when creating an event):
                             ticket button (any text before/after the URL
                             on that line is ignored)
                           - a trailing "#" at the very end of the
-                            description -> marks this event as a
-                            "Highlight" instead of a normal show
+                            description -> marks this event to become a
+                            "Highlight" once its date has passed
                        Whatever description text is left over (after
                        removing the Tickets line and trailing #) is shown
                        as the italic show-context line for shows, or as
@@ -92,11 +98,11 @@ def to_local(dt, tz):
 
 
 def parse_description(raw: str):
-    """Returns (ticket_url, remaining_text, is_highlight)."""
+    """Returns (ticket_url, remaining_text, is_highlight_tagged)."""
     text = (raw or "").replace("\r\n", "\n").replace("\r", "\n")
     trimmed_full = text.rstrip()
-    is_highlight = trimmed_full.endswith("#")
-    text = trimmed_full[:-1] if is_highlight else trimmed_full
+    is_highlight_tagged = trimmed_full.endswith("#")
+    text = trimmed_full[:-1] if is_highlight_tagged else trimmed_full
 
     ticket_url = None
     m = TICKET_RE.search(text)
@@ -105,7 +111,7 @@ def parse_description(raw: str):
         text = text[: m.start()] + text[m.end():]
 
     remaining = re.sub(r"\n{2,}", "\n", text).strip()
-    return ticket_url, remaining, is_highlight
+    return ticket_url, remaining, is_highlight_tagged
 
 
 def load_events(ics_bytes: bytes, tz, window_start: datetime, window_end: datetime):
@@ -133,7 +139,7 @@ def load_events(ics_bytes: bytes, tz, window_start: datetime, window_end: dateti
         summary = str(comp.get("summary", "") or "").strip()
         location = str(comp.get("location", "") or "").strip()
         description_raw = str(comp.get("description", "") or "")
-        ticket_url, context, is_highlight = parse_description(description_raw)
+        ticket_url, context, is_highlight_tagged = parse_description(description_raw)
 
         events.append({
             "summary": summary,
@@ -146,7 +152,7 @@ def load_events(ics_bytes: bytes, tz, window_start: datetime, window_end: dateti
             "sort_dt": start_local,
             "ticket_url": ticket_url,
             "context": context,
-            "is_highlight": is_highlight,
+            "is_highlight_tagged": is_highlight_tagged,
         })
     return events
 
@@ -293,18 +299,28 @@ def main():
     ics_bytes = fetch_ics(args.ical_url)
     events = load_events(ics_bytes, tz, window_start, window_end)
 
+    # --- Classification: DATE FIRST, TAG SECOND ---
+    # An event's tag only matters once it's in the past. Upcoming events
+    # always show as normal Live shows regardless of tagging, so Wally can
+    # tag a gig the moment he creates it and never think about it again.
+    past_cutoff = now - relativedelta(months=args.past_months)
+
     highlights = sorted(
-        (e for e in events if e["is_highlight"]),
+        (e for e in events if e["is_highlight_tagged"] and e["sort_dt"] < now),
         key=lambda e: e["sort_dt"],
         reverse=True,
     )
-    shows = [e for e in events if not e["is_highlight"]]
 
-    upcoming = sorted((e for e in shows if e["sort_dt"] >= now), key=lambda e: e["sort_dt"])
+    upcoming = sorted(
+        (e for e in events if e["sort_dt"] >= now),
+        key=lambda e: e["sort_dt"],
+    )
 
-    past_cutoff = now - relativedelta(months=args.past_months)
     past = sorted(
-        (e for e in shows if e["sort_dt"] < now and e["sort_dt"] >= past_cutoff),
+        (e for e in events
+         if not e["is_highlight_tagged"]
+         and e["sort_dt"] < now
+         and e["sort_dt"] >= past_cutoff),
         key=lambda e: e["sort_dt"],
         reverse=True,
     )
