@@ -4,6 +4,10 @@ on:
   schedule:
     # 20:00 UTC daily = ~06:00 AEST / 07:00 AEDT
     - cron: '0 20 * * *'
+    # 04:00 UTC daily = ~14:00 AEST / 15:00 AEDT
+    - cron: '0 4 * * *'
+    # 12:00 UTC daily = ~22:00 AEST / 23:00 AEDT
+    - cron: '0 12 * * *'
   workflow_dispatch: {}
 
 permissions:
